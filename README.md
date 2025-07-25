@@ -20,21 +20,38 @@
 - **特色功能**：订单查询、PDF发票生成、Excel导出
 - **开发工具**：Playwright MCP 实现可视化调试
 
+#### 🎯 界面效果对比
+
+<table>
+<tr>
+<td align="center"><b>初始状态</b></td>
+<td align="center"><b>最终效果</b></td>
+</tr>
+<tr>
+<td><img src="screenshot/image1.png" width="400" alt="初始界面"/></td>
+<td><img src="screenshot/image7.png" width="400" alt="最终界面"/></td>
+</tr>
+<tr>
+<td>布局混乱，组件排列不当</td>
+<td>专业级界面，完美用户体验</td>
+</tr>
+</table>
+
 ## 界面演进过程
 
 通过 `screenshot/` 目录中的截图，可以清晰看到界面从问题到完美的演进过程：
 
 ### 📸 界面变化历程
 
-| 截图 | 阶段描述 |
-|------|----------|
-| `image1.png` | 初始界面 - 布局混乱，组件排列不当 |
-| `image2.png` | 调试过程 - 开始识别布局问题 |
-| `image3.png` | 优化中期 - 部分组件对齐改善 |
-| `image4.png` | 持续改进 - 响应式布局调整 |
-| `image5.png` | 接近完成 - 整体布局趋于合理 |
-| `image6.png` | 最终优化 - 细节完善 |
-| `image7.png` | 完美呈现 - 专业级界面效果 |
+| 截图 | 阶段描述 | 界面预览 |
+|------|----------|----------|
+| `image1.png` | 初始界面 - 布局混乱，组件排列不当 | ![初始界面](screenshot/image1.png) |
+| `image2.png` | 调试过程 - 开始识别布局问题 | ![调试过程](screenshot/image2.png) |
+| `image3.png` | 优化中期 - 部分组件对齐改善 | ![优化中期](screenshot/image3.png) |
+| `image4.png` | 持续改进 - 响应式布局调整 | ![持续改进](screenshot/image4.png) |
+| `image5.png` | 接近完成 - 整体布局趋于合理 | ![接近完成](screenshot/image5.png) |
+| `image6.png` | 最终优化 - 细节完善 | ![最终优化](screenshot/image6.png) |
+| `image7.png` | 完美呈现 - 专业级界面效果 | ![完美呈现](screenshot/image7.png) |
 
 > 💡 **关键转折点**：引入 Playwright MCP 后，Claude Code 能够：
 > - 自主截图查看当前界面状态
@@ -93,6 +110,18 @@ npm run dev
    - 批量订单 Excel 导出
 4. **统计面板**：实时订单状态统计
 
+#### 📱 核心功能界面展示
+
+<div align="center">
+<img src="screenshot/image5.png" width="600" alt="订单管理主界面"/>
+<p><i>订单管理主界面 - 清晰的数据展示和操作界面</i></p>
+</div>
+
+<div align="center">
+<img src="screenshot/image6.png" width="600" alt="优化后的界面布局"/>
+<p><i>优化后的界面布局 - 响应式设计和用户友好的交互</i></p>
+</div>
+
 ## 项目结构
 
 ```
@@ -148,15 +177,30 @@ order-ticket-system/
 - 传统调试效率低下
 - 需要新的解决方案
 
+<div align="center">
+<img src="screenshot/image2.png" width="500" alt="界面问题阶段"/>
+<p><i>Phase 2: 界面布局问题明显，需要系统性解决方案</i></p>
+</div>
+
 ### Phase 3: 视觉突破 🚀
 - 引入 Playwright MCP
 - 获得界面"视觉"能力
 - 开启可视化调试模式
 
+<div align="center">
+<img src="screenshot/image4.png" width="500" alt="调试改进过程"/>
+<p><i>Phase 3: 通过可视化调试，开始系统性改进界面</i></p>
+</div>
+
 ### Phase 4: 完美收官 🎉
 - 快速定位所有布局问题
 - 迭代优化界面效果
 - 实现专业级用户体验
+
+<div align="center">
+<img src="screenshot/image7.png" width="500" alt="最终完美界面"/>
+<p><i>Phase 4: 最终实现专业级界面效果，用户体验完美</i></p>
+</div>
 
 ## 总结
 
