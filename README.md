@@ -101,6 +101,122 @@ npm run dev
 ```
 访问地址：http://localhost:5173
 
+## Playwright MCP 配置指南
+
+### 🎭 什么是 Playwright MCP？
+
+Playwright MCP (Model Context Protocol) 是让 Claude Code 获得"视觉能力"的关键工具。通过它，Claude Code 可以：
+- 自主截图查看网页界面
+- 分析页面布局和样式问题
+- 实时验证界面修改效果
+- 进行可视化的界面调试
+
+### 📦 安装步骤
+
+#### 1. 创建 Playwright 测试目录
+```bash
+# 在项目根目录创建测试目录
+mkdir playwright-tests
+cd playwright-tests
+
+# 初始化 Playwright 项目
+npm init playwright@latest
+```
+
+#### 2. 配置 Claude MCP
+```bash
+# 添加 Playwright MCP 到 Claude
+claude mcp add playwright
+
+# 或者直接运行 Playwright MCP 服务
+npx @playwright/mcp@latest
+```
+
+#### 3. 启动 Claude Code 并激活 MCP
+
+在 Claude Code 对话中，需要主动告诉 Claude 启动 Playwright MCP 能力：
+
+```
+请启动 Playwright MCP 功能，我需要你帮我调试界面问题。
+```
+
+> ⚠️ **重要提示**：Claude Code 不会自动使用 Playwright MCP，需要在对话中明确要求启动这个能力。
+
+### 🔧 使用流程
+
+#### 典型的可视化调试流程：
+
+1. **启动服务**
+   ```bash
+   # 启动后端
+   cd order-ticket-backend && mvn spring-boot:run
+   
+   # 启动前端
+   cd order-ticket-frontend && npm run dev
+   ```
+
+2. **激活 MCP 能力**
+   ```
+   用户：请启动 Playwright MCP，帮我截图查看当前页面效果
+   Claude：好的，我现在启动 Playwright MCP 来截图查看页面...
+   ```
+
+3. **可视化调试**
+   - Claude 自动截图当前页面
+   - 分析界面布局问题
+   - 提供具体的修改建议
+   - 修改代码后再次截图验证
+
+4. **迭代优化**
+   - 重复截图 → 分析 → 修改 → 验证的循环
+   - 直到达到理想的界面效果
+
+### 📋 MCP 配置文件示例
+
+如果需要自定义配置，可以创建 `playwright.config.js`：
+
+```javascript
+// playwright.config.js
+module.exports = {
+  testDir: './tests',
+  use: {
+    baseURL: 'http://localhost:5173',
+    screenshot: 'only-on-failure',
+    video: 'retain-on-failure',
+  },
+  projects: [
+    {
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'] },
+    },
+  ],
+};
+```
+
+### 🎯 实际应用案例
+
+在本项目中，Playwright MCP 的使用效果：
+
+**问题发现阶段**：
+```
+Claude 截图发现：页面布局混乱，组件重叠
+→ 定位到 CSS Grid 配置问题
+```
+
+**解决方案验证**：
+```
+修改 main.css 中的网格布局
+→ Claude 再次截图确认改进效果
+→ 继续优化直到完美
+```
+
+**最终验收**：
+```
+Claude 截图展示最终界面
+→ 确认达到专业级效果
+→ 完成可视化调试流程
+```
+
 ### 🎮 功能演示
 
 1. **订单列表**：查看所有订单，支持分页和筛选
@@ -141,6 +257,10 @@ order-ticket-system/
 │   │   ├── api/                   # API 接口层
 │   │   └── router/                # 路由配置
 │   └── package.json               # NPM 配置
+├── playwright-tests/              # Playwright MCP 测试目录
+│   ├── tests/                     # 测试用例
+│   ├── playwright.config.js       # Playwright 配置
+│   └── package.json               # 测试依赖
 └── screenshot/                    # 界面演进截图
     ├── image1.png → image7.png    # 从问题到完美的过程
 ```
