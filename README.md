@@ -29,11 +29,11 @@
 </tr>
 <tr>
 <td><img src="screenshot/image1.png" width="400" alt="初始界面"/></td>
-<td><img src="screenshot/image7.png" width="400" alt="最终界面"/></td>
+<td><img src="screenshot/image4.png" width="400" alt="最终界面"/></td>
 </tr>
 <tr>
 <td>布局混乱，组件排列不当</td>
-<td>专业级界面，完美用户体验</td>
+<td>布局成功是这样的</td>
 </tr>
 </table>
 
