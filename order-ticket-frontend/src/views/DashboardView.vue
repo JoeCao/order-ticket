@@ -31,10 +31,6 @@
         </div>
         
         <div class="table-container">
-          <!-- Debug info -->
-          <div class="debug-info" style="background: #f0f0f0; padding: 10px; margin-bottom: 10px; font-size: 12px;">
-            调试信息: error={{ error }}, loading={{ loading }}, orders数量={{ recentOrders.length }}
-          </div>
           
           <div v-if="error" class="error-state">
             <el-empty description="加载失败">
@@ -302,38 +298,40 @@ onMounted(() => {
 
 /* Statistics Section */
 .stats-section {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
   margin-bottom: 24px;
 }
 
 .stat-card {
-  flex: 1;
   background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
   display: flex;
   align-items: center;
   gap: 16px;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .stat-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border-color: rgba(64, 158, 255, 0.2);
 }
 
 .stat-icon {
-  font-size: 32px;
-  width: 64px;
-  height: 64px;
+  font-size: 28px;
+  width: 56px;
+  height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(64, 158, 255, 0.1);
-  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(64, 158, 255, 0.1), rgba(64, 158, 255, 0.2));
+  border-radius: 12px;
 }
 
 .stat-info {
@@ -341,14 +339,16 @@ onMounted(() => {
 }
 
 .stat-value {
-  font-size: 28px;
-  font-weight: 700;
+  font-size: 24px;
+  font-weight: 600;
   margin-bottom: 4px;
+  line-height: 1.2;
 }
 
 .stat-label {
-  font-size: 14px;
-  color: #606266;
+  font-size: 13px;
+  color: #909399;
+  font-weight: 500;
 }
 
 /* Content Wrapper */
@@ -434,7 +434,13 @@ onMounted(() => {
 .action-btn {
   width: 100%;
   height: 44px;
-  justify-content: center;
+  justify-content: flex-start !important;
+  text-align: left !important;
+}
+
+.action-btn .el-button__text-wrapper {
+  text-align: left !important;
+  width: 100%;
 }
 
 .today-stats {

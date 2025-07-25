@@ -1,12 +1,11 @@
 @import './base.css';
 
+/* Global app styles for Element Plus compatibility */
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
   font-weight: normal;
 }
 
+/* Link styles */
 a,
 .green {
   text-decoration: none;
@@ -21,15 +20,18 @@ a,
   }
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
+/* Element Plus custom overrides */
+.el-header {
+  padding: 0 !important;
+}
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+.el-main {
+  padding: 0 !important;
+}
+
+/* Ensure full height layout */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
