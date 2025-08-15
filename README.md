@@ -126,10 +126,7 @@ npm init playwright@latest
 #### 2. 配置 Claude MCP
 ```bash
 # 添加 Playwright MCP 到 Claude
-claude mcp add playwright
-
-# 或者直接运行 Playwright MCP 服务
-npx @playwright/mcp@latest
+claude mcp add playwright npx @playwright/mcp@latest
 ```
 
 #### 3. 启动 Claude Code 并激活 MCP
